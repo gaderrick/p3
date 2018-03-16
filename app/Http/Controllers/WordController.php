@@ -13,6 +13,8 @@ class WordController extends Controller
 
     public function score(Request $request)
     {
+        // scoring.php needs to go in here
+
         $userWord = $request->route('userWord');
         $multiplier = $request->route('multiplier');
         $bingo = $request->route('bingo');
