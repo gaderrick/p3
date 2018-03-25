@@ -1,11 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    @if(isset($title))
-        {{ $title }}
-    @else
-        CSCI E-15 | Project 3 - Word Scorer w/ Laravel
-    @endif
+    CSCI E-15 | Project 3 - Word Scorer w/ Laravel | Word Score
 @endsection
 
 @push('head')
@@ -15,10 +11,17 @@
 
 @section('content')
     <p>
-        This will show the blank initial form on the page<br><br>
+        This will show the scoring results for a word with its options<br><br>
         Word: {{ $userWord }}<br>
         Multiplier: {{ $multiplier }}<br>
         Bingo: {{ $bingo }}<br>
         Spelling: {{ $spelling }}<br>
     </p>
+
+
+
+
+
+
+
 @endsection

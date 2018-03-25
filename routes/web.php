@@ -2,4 +2,4 @@
 
 Route::get('/', 'WordController@show');
 
-Route::get('/score/{userWord?}/{multiplier?}/{bingo?}/{spelling?}', 'WordController@score');
+Route::get('/score', 'WordController@score');
