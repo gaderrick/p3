@@ -13,5 +13,8 @@
 + [W3C Validator](https://validator.w3.org/)
 + [Spell Check Images](http://blog.epicbrowser.com/2014/05/spell-check-private-working-in-epic/)
 + [Letter Images](http://www.echopulse.net/lj/images/scrabble-icons-pack-crystalxp.net-en-1041%20Folder/png/scrabble-uk/)
++ [Where to put include files in Laravel](https://laracasts.com/discuss/channels/general-discussion/be-place-to-include-a-file)
+
++ Reused the error-field.blade and error-form.blade files from class (including some of the foobooks CSS)
 
 ## Notes for instructor

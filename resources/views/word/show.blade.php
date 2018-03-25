@@ -10,65 +10,68 @@
 @endpush
 
 @section('content')
-    {{--<div class='row'>--}}
-        <div class='col-sm-12 mainArea'>
-            <form method='GET' action='/score' name='main'>
-                <div class='row' style='padding-top: 5px; padding-bottom: 15px'>
-                    <div class='col-sm-6 formText' style='text-align: right'>
-                        <label for='userWord'>Word to score:</label>
-                    </div>
-                    <div class='col-sm-6'>
-                        <input type='text' name='userWord' style='width: 150px' id='userWord'
-                               placeholder='(max of 7 letters)'
-                               maxlength='7'
-                               value=''>
-                    </div>
+    <div class='col-sm-12 mainArea'>
+        <form method='GET' action='/score' name='main'>
+            <div class='row' style='padding-top: 5px; padding-bottom: 15px'>
+                <div class='col-sm-6 formText' style='text-align: right'>
+                    <label for='userWord'>Word to score:</label>
                 </div>
-                <div class='row' style='padding-bottom: 15px'>
-                    <div class='col-sm-6 formText' style='text-align: right'>
-                        <label for='multiplier'>Score Multiplier:</label>
-                    </div>
+                <div class='col-sm-6'>
+                    <input type='text' name='userWord' style='width: 150px' id='userWord'
+                           placeholder='(max of 7 letters)'
+                           maxlength='7'
+                           value='{{old('userWord')}}'>
+                    @include('modules.error-field', ['field' => 'userWord'])
+                </div>
+            </div>
+            <div class='row' style='padding-bottom: 15px'>
+                <div class='col-sm-6 formText' style='text-align: right'>
+                    <label for='multiplier'>Score Multiplier:</label>
+                </div>
 
-                    {{-- @TODO: Need to add selected tags to the below options --}}
+                {{-- @TODO: Need to add selected tags to the below options --}}
 
-                    <div class='col-sm-6'>
-                        <select name='multiplier' id='multiplier'>
-                            <option value='none'>
-                                None
-                            </option>
-                            <option value='double'>
-                                Double Word
-                            </option>
-                            <option value='triple'>
-                                Triple Word
-                            </option>
-                        </select>
-                    </div>
+                <div class='col-sm-6'>
+                    <select name='multiplier' id='multiplier'>
+                        <option value='none' {{(old('multiplier')=='none')?'selected':''}} >
+                            None
+                        </option>
+                        <option value='double' {{(old('multiplier')=='double')?'selected':''}}>
+                            Double Word
+                        </option>
+                        <option value='triple' {{(old('multiplier')=='triple')?'selected':''}}>
+                            Triple Word
+                        </option>
+                    </select>
+                    @include('modules.error-field', ['field' => 'multiplier'])
                 </div>
-                <div class='row' style='padding-bottom: 15px'>
-                    <div class='col-sm-6 formText' style='text-align: right'>
-                        <label for='bingo'>Bingo! (+50 pts)?</label>
-                    </div>
-                    <div class='col-sm-6'>
-                        {{-- @TODO: Need to add checked tags to the below options --}}
-                        <input type='checkbox' name='bingo' id='bingo'>
-                    </div>
+            </div>
+            <div class='row' style='padding-bottom: 15px'>
+                <div class='col-sm-6 formText' style='text-align: right'>
+                    <label for='bingo'>Bingo! (+50 pts)?</label>
                 </div>
-                <div class='row' style='padding-bottom: 15px'>
-                    <div class='col-sm-6 formText' style='text-align: right'>
-                        <label for='spelling'>Check word spelling?</label>
-                    </div>
-                    <div class='col-sm-6'>
-                        {{-- @TODO: Need to add checked tags to the below options --}}
-                        <input type='checkbox' name='spelling' id='spelling' >
-                    </div>
+                <div class='col-sm-6'>
+                    {{-- @TODO: Need to add checked tags to the below options --}}
+                    <input type='checkbox' name='bingo' id='bingo' {{(old('bingo')?'checked':'')}}>
+                    @include('modules.error-field', ['field' => 'bingo'])
                 </div>
-                <div class='row' style='padding-top:25px; padding-bottom: 15px'>
-                    <div class='col-sm-12 formText centerContents'>
-                        <input type='submit' value='Score the Word' class='btn'>&nbsp;&nbsp;
-                    </div>
+            </div>
+            <div class='row' style='padding-bottom: 15px'>
+                <div class='col-sm-6 formText' style='text-align: right'>
+                    <label for='spelling'>Check word spelling?</label>
                 </div>
-            </form>
-        </div>
-    {{--</div>--}}
+                <div class='col-sm-6'>
+                    {{-- @TODO: Need to add checked tags to the below options --}}
+                    <input type='checkbox' name='spelling' id='spelling' {{(old('spelling')?'checked':'')}}>
+                    @include('modules.error-field', ['field' => 'spelling'])
+                </div>
+            </div>
+            <div class='row' style='padding-top:25px; padding-bottom: 15px'>
+                <div class='col-sm-12 formText centerContents'>
+                    <input type='submit' value='Score the Word' class='btn'>&nbsp;&nbsp;
+                </div>
+            </div>
+        </form>
+        @include('modules.error-form')
+    </div>
 @endsection

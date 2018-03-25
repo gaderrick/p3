@@ -6,22 +6,49 @@
 
 @push('head')
     {{-- Page specific CSS includes should be defined here; this .css file does not exist yet, but we can create it --}}
-    <link href='/css/wordscore.css' type='text/css' rel='stylesheet'>
 @endpush
 
 @section('content')
+
+    <div class='col-sm-12 mainArea'>
+        Your Word:<br>
+        @for ($i=0; $i < strlen($userWord); $i++)
+            <img src='images/{{ $userWord[$i]}}.png' alt='{{ $userWord[$i]}}' class='responsive-image-small'>
+        @endfor
+        <br>
+        Scored {{ $score }} points {{ ($options > 0 ? ' with the following options:' : '')}}
+        <br><br>
+        <div class='col-sm-12 messageArea alert alert-success'>
+            @if ($multiplier=='double')
+                <img class='img-responsive' src='images/double.png' alt='2x Word Score' style='max-width: 75px'
+                     id='double'>
+            @elseif ($multiplier=='triple')
+                <img class='img-responsive' src='images/triple.png' alt='3x Word Score' style='max-width: 75px'
+                     id='triple'>
+            @endif
+
+            @if ($bingo=='on')
+                <img class='img-responsive' src='images/bingo.png'
+                     alt='Bingo! (Image adapted from http://www.onlinewebfonts.com/icon starter image)'
+                     style='max-width: 75px'
+                     id='bingoImage'>
+            @endif
+
+            @if ($spelling=='on' && $isRealWord)
+                <img class='img-responsive' src='images/spell.png' alt='Spell Check (its a real word)'
+                     style='max-width: 75px' id='spell'>
+            @endif
+        </div>
+    </div>
+
     <p>
-        This will show the scoring results for a word with its options<br><br>
+        <br>
         Word: {{ $userWord }}<br>
         Multiplier: {{ $multiplier }}<br>
         Bingo: {{ $bingo }}<br>
         Spelling: {{ $spelling }}<br>
+        Is Real Word: {{ $isRealWord }}<br>
+        Score: {{ $score }}<br>
+        Options: {{ $options }}<br>
     </p>
-
-
-
-
-
-
-
 @endsection
