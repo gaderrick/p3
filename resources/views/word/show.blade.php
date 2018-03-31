@@ -10,6 +10,7 @@
 @endpush
 
 @section('content')
+    <h4 style="text-align: center">Enter the word you want to score below</h4>
     <div class='col-sm-12 mainArea'>
         <form method='GET' action='/score' name='main'>
             <div class='row' style='padding-top: 5px; padding-bottom: 15px'>

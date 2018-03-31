@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-
+    <h4 style="text-align: center">The scoring for your word is below</h4>
     <div class='col-sm-12 mainArea'>
         <br>
         <b>Your Word</b>:<br><br>
