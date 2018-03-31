@@ -16,7 +16,7 @@
                 <div class='col-sm-6 formText' style='text-align: right'>
                     <label for='userWord'>Word to score:</label>
                 </div>
-                <div class='col-sm-6'>
+                <div class='col-sm-6' style='text-align: left'>
                     <input type='text' name='userWord' style='width: 150px' id='userWord'
                            placeholder='(max of 7 letters)'
                            maxlength='7'
@@ -28,11 +28,8 @@
                 <div class='col-sm-6 formText' style='text-align: right'>
                     <label for='multiplier'>Score Multiplier:</label>
                 </div>
-
-                {{-- @TODO: Need to add selected tags to the below options --}}
-
-                <div class='col-sm-6'>
-                    <select name='multiplier' id='multiplier'>
+                <div class='col-sm-6' style='text-align: left'>
+                    <select name='multiplier' id='multiplier' style='text-align: left'>
                         <option value='none' {{(old('multiplier')=='none')?'selected':''}} >
                             None
                         </option>
@@ -50,8 +47,7 @@
                 <div class='col-sm-6 formText' style='text-align: right'>
                     <label for='bingo'>Bingo! (+50 pts)?</label>
                 </div>
-                <div class='col-sm-6'>
-                    {{-- @TODO: Need to add checked tags to the below options --}}
+                <div class='col-sm-6' style='text-align: left'>
                     <input type='checkbox' name='bingo' id='bingo' {{(old('bingo')?'checked':'')}}>
                     @include('modules.error-field', ['field' => 'bingo'])
                 </div>
@@ -60,8 +56,7 @@
                 <div class='col-sm-6 formText' style='text-align: right'>
                     <label for='spelling'>Check word spelling?</label>
                 </div>
-                <div class='col-sm-6'>
-                    {{-- @TODO: Need to add checked tags to the below options --}}
+                <div class='col-sm-6' style='text-align: left'>
                     <input type='checkbox' name='spelling' id='spelling' {{(old('spelling')?'checked':'')}}>
                     @include('modules.error-field', ['field' => 'spelling'])
                 </div>

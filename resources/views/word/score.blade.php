@@ -11,44 +11,38 @@
 @section('content')
 
     <div class='col-sm-12 mainArea'>
-        Your Word:<br>
+        <br>
+        <b>Your Word</b>:<br><br>
         @for ($i=0; $i < strlen($userWord); $i++)
             <img src='images/{{ $userWord[$i]}}.png' alt='{{ $userWord[$i]}}' class='responsive-image-small'>
         @endfor
-        <br>
-        Scored {{ $score }} points {{ ($options > 0 ? ' with the following options:' : '')}}
         <br><br>
-        <div class='col-sm-12 messageArea alert alert-success'>
-            @if ($multiplier=='double')
-                <img class='img-responsive' src='images/double.png' alt='2x Word Score' style='max-width: 75px'
-                     id='double'>
-            @elseif ($multiplier=='triple')
-                <img class='img-responsive' src='images/triple.png' alt='3x Word Score' style='max-width: 75px'
-                     id='triple'>
-            @endif
+        @if ($options > 0)
+            <b>Scored {{ $score }} points with the following options</b>:<br><br>
+            <div class='col-sm-12 messageArea alert alert-success'>
+                @if ($multiplier=='double')
+                    <img class='img-responsive' src='images/double.png' alt='2x Word Score' style='max-width: 75px'
+                         id='double'>
+                @elseif ($multiplier=='triple')
+                    <img class='img-responsive' src='images/triple.png' alt='3x Word Score' style='max-width: 75px'
+                         id='triple'>
+                @endif
 
-            @if ($bingo=='on')
-                <img class='img-responsive' src='images/bingo.png'
-                     alt='Bingo! (Image adapted from http://www.onlinewebfonts.com/icon starter image)'
-                     style='max-width: 75px'
-                     id='bingoImage'>
-            @endif
+                @if ($bingo=='on')
+                    <img class='img-responsive' src='images/bingo.png'
+                         alt='Bingo! (Image adapted from http://www.onlinewebfonts.com/icon starter image)'
+                         style='max-width: 75px'
+                         id='bingoImage'>
+                @endif
 
-            @if ($spelling=='on' && $isRealWord)
-                <img class='img-responsive' src='images/spell.png' alt='Spell Check (its a real word)'
-                     style='max-width: 75px' id='spell'>
-            @endif
-        </div>
+                @if ($spelling=='on' && $isRealWord)
+                    <img class='img-responsive' src='images/spell.png' alt='Spell Check (its a real word)'
+                         style='max-width: 75px' id='spell'>
+                @endif
+            </div>
+        @else
+            <b>Scored {{ $score }} points</b><br><br>
+        @endif
+        <a href='/'>Score Another Word</a>
     </div>
-
-    <p>
-        <br>
-        Word: {{ $userWord }}<br>
-        Multiplier: {{ $multiplier }}<br>
-        Bingo: {{ $bingo }}<br>
-        Spelling: {{ $spelling }}<br>
-        Is Real Word: {{ $isRealWord }}<br>
-        Score: {{ $score }}<br>
-        Options: {{ $options }}<br>
-    </p>
 @endsection

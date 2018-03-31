@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <title>@yield('title', 'CSCI E-15 | Project 3 - Word Scorer w/ Laravel')</title>
     <meta charset='utf-8'>
@@ -22,7 +22,7 @@
         @yield('content')
     </section>
 
-    <footer>
+    <footer style="text-align: center">
         &copy; {{ date('Y') }} - gaderrick.me, inc.
     </footer>
 
