@@ -34,8 +34,8 @@ class WordController extends Controller
         $letters = json_decode($lettersJSON, true);
 
         // Check the spelling of the submitted word
-        if ($spelling) {
-            // $showScoreOptions++; (NEEDED????)
+        if ($spelling=='on') {
+            $options++;
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, 'https://od-api.oxforddictionaries.com:443/api/v1/entries/en/' . $userWord);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
