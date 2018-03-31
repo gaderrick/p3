@@ -15,7 +15,7 @@
         <form method='GET' action='/score' name='main'>
             <div class='row' style='padding-top: 5px; padding-bottom: 15px'>
                 <div class='col-sm-6 formText' style='text-align: right'>
-                    <label for='userWord'>Word to score:</label>
+                    <label for='userWord'>Word to score (required):</label>
                 </div>
                 <div class='col-sm-6' style='text-align: left'>
                     <input type='text' name='userWord' style='width: 150px' id='userWord'
